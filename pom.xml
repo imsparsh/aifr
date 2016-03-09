@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>imspar</groupId>
+	<groupId>aifr</groupId>
 	<artifactId>aifr</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -95,6 +95,11 @@
 			<artifactId>aws-lambda-java-core</artifactId>
 			<version>1.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>javafx</artifactId>
+			<version>2.2.3</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -125,7 +130,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>imspar.ReloadedSVM</mainClass>
+							<mainClass>aifr.ReloadedSVM</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -143,6 +148,14 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.2.0</version>
+				<configuration>
+					<mainClass>your.package.with.Launcher</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
