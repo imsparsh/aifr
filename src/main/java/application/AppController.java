@@ -222,7 +222,7 @@ public class AppController implements Initializable {
 					progressBar.setProgress(0.05);
 				});
 				try {
-					Thread.sleep(300);
+					Thread.sleep(200);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -231,7 +231,7 @@ public class AppController implements Initializable {
 					progressBar.setProgress(0.10);
 				});
 				try {
-					Thread.sleep(500);
+					Thread.sleep(400);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -242,7 +242,7 @@ public class AppController implements Initializable {
 					progressBar.setProgress(0.15);
 				});
 				try {
-					Thread.sleep(300);
+					Thread.sleep(200);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -251,7 +251,7 @@ public class AppController implements Initializable {
 					progressBar.setProgress(0.20);
 				});
 				try {
-					Thread.sleep(300);
+					Thread.sleep(200);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -260,177 +260,184 @@ public class AppController implements Initializable {
 					progressBar.setProgress(0.25);
 				});
 				try {
-					Thread.sleep(400);
+					Thread.sleep(300);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				DetectedFace face = lbp.extractFace(img);
-				Platform.runLater(() -> {
-					progressLabel.setText("Aligning face..");
-					progressBar.setProgress(0.30);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.35);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.40);
-				});
-				try {
-					Thread.sleep(400);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				FImage alignedFace = lbp.alignFace(face);
-				// DisplayUtilities.display(alignedFace);
-
-				Platform.runLater(() -> {
-					progressLabel.setText("Extracting features..");
-					progressBar.setProgress(0.45);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.50);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.55);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.60);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.65);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				FloatFV feature = lbp.extractFeature(face);
-				Platform.runLater(() -> {
-					progressLabel.setText("Classifying identity..");
-					progressBar.setProgress(0.75);
-				});
-				try {
-					Thread.sleep(700);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.80);
-				});
-				try {
-					Thread.sleep(300);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				ClassificationResult<String> classF = classifier.classify(feature);
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.84);
-				});
-				try {
-					Thread.sleep(25);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.88);
-				});
-				try {
-					Thread.sleep(25);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.92);
-				});
-				try {
-					Thread.sleep(25);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				Platform.runLater(() -> {
-					progressBar.setProgress(0.96);
-				});
-				try {
-					Thread.sleep(25);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				if (!(classF == null)) {
+				if (!(face == null)) {
+					Platform.runLater(() -> {
+						progressLabel.setText("Aligning face..");
+						progressBar.setProgress(0.30);
+					});
 					try {
-						testingSet = new VFSListDataset<MBFImage>(
-								new File(Constant.trainPath + "/" + classF.toString()).getAbsolutePath(),
-								ImageUtilities.MBFIMAGE_READER);
-					} catch (FileSystemException e) {
-						System.err.println("Couldn't load dataset: " + e.getMessage());
-						System.exit(1);
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.35);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.40);
+					});
+					try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					FImage alignedFace = lbp.alignFace(face);
+					// DisplayUtilities.display(alignedFace);
+
+					Platform.runLater(() -> {
+						progressLabel.setText("Extracting features..");
+						progressBar.setProgress(0.45);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.50);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.55);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.60);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.65);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					FloatFV feature = lbp.extractFeature(face);
+					Platform.runLater(() -> {
+						progressLabel.setText("Classifying identity..");
+						progressBar.setProgress(0.75);
+					});
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.80);
+					});
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					ClassificationResult<String> classF = classifier.classify(feature);
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.84);
+					});
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.88);
+					});
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.92);
+					});
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Platform.runLater(() -> {
+						progressBar.setProgress(0.96);
+					});
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 
-					MBFImage imagePath = testingSet.get(0);
-					BufferedImage bufferedImage = ImageUtilities.createBufferedImage(imagePath);
-					Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+					if (!(classF == null)) {
+						try {
+							testingSet = new VFSListDataset<MBFImage>(
+									new File(Constant.trainPath + "/" + classF.toString()).getAbsolutePath(),
+									ImageUtilities.MBFIMAGE_READER);
+						} catch (FileSystemException e) {
+							System.err.println("Couldn't load dataset: " + e.getMessage());
+							System.exit(1);
+						}
 
-					Platform.runLater(() -> {
-						interestImage.setImage(image);
+						MBFImage imagePath = testingSet.get(0);
+						BufferedImage bufferedImage = ImageUtilities.createBufferedImage(imagePath);
+						Image image = SwingFXUtils.toFXImage(bufferedImage, null);
 
-						progressLabel.setVisible(false);
-						progressBar.setVisible(false);
-						outClassLabel.setVisible(true);
-						outClassLabel.setText(classF.toString());
-					});
+						Platform.runLater(() -> {
+							interestImage.setImage(image);
 
+							progressLabel.setVisible(false);
+							progressBar.setVisible(false);
+							outClassLabel.setVisible(true);
+							outClassLabel.setText(classF.toString());
+						});
+
+					} else {
+
+						Platform.runLater(() -> {
+							outClassLabel.setVisible(false);
+							progressLabel.setText("Classification Error Occurred..");
+						});
+
+					}
 				} else {
-
 					Platform.runLater(() -> {
-						outClassLabel.setVisible(false);
-						progressLabel.setText("Classification Error Occurred..");
+						progressLabel.setText("No Face Found..");
+						progressBar.setProgress(1.0);
 					});
-
 				}
 				Platform.runLater(() -> {
 					reset.setDisable(false);
