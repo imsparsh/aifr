@@ -14,7 +14,6 @@ import org.apache.commons.vfs2.FileSystemException;
 import org.openimaj.data.dataset.VFSListDataset;
 import org.openimaj.experiment.evaluation.classification.ClassificationResult;
 import org.openimaj.feature.FloatFV;
-import org.openimaj.image.FImage;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.MBFImage;
 import org.openimaj.image.processing.face.detection.DetectedFace;
@@ -295,7 +294,7 @@ public class AppController implements Initializable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					FImage alignedFace = lbp.alignFace(face);
+					// FImage alignedFace = lbp.alignFace(face);
 					// DisplayUtilities.display(alignedFace);
 
 					Platform.runLater(() -> {
